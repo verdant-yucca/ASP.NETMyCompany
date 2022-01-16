@@ -6,5 +6,12 @@
 }
 
 <div>
-    @Html.Raw(Model.Text)
+    <h1>Добро пожаловатЬ!</h1>
+    <form asp-area="" asp-controller="Account" asp-action="Login" method="post">
+        <button >Вход</button>
+    </form>
+    <form asp-area="" asp-controller="Register" asp-action="Register" method="post">
+        <button >Регистрация</button>
+    </form>
+    
 </div>
