@@ -1,14 +1,32 @@
-﻿@model LoginViewModel
-<div>
-    <h1>Регистрация</h1>
-    <div class="div-box">
-        <form asp-area="" asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
-            <h2>Логин</h2>
-            <input type="text" name="name" value="" placeholder="Login" />
-            <h2>Пароль</h2>
-            <input type="text" name="name" value="" placeholder="Password" />
-            <button type="submit">Зарегистрироваться</button>
+﻿@model RegisterViewModel
 
-        </form>
-    </div>
-</div>
+<h2>Регистрация</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <form asp-area="" asp-controller="Register" asp-action="Register" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
+        <h4>Регистрация пользователя</h4>
+        <hr />
+        @Html.ValidationSummary(false)
+        <div>
+            Логин
+            <div>
+                @Html.EditorFor(model => model.UserName)
+            </div>
+        </div>
+        <div>
+            Пароль
+            <div>
+                @Html.EditorFor(model => model.Password)
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <input type="submit" value="Зарегистрировать" />
+            </div>
+        </div>
+    </form>
+}

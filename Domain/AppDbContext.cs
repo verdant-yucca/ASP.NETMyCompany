@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlTypes;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,6 @@ namespace MyCompany.Domain
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<TextField> TextFields { get; set; }
-        public DbSet<ServiceItem> ServiceItems { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -68,21 +68,39 @@ namespace MyCompany.Domain
             });
 
             modelBuilder.Entity<TextField>().HasData(new TextField { 
-                Id = new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"), 
+                Id = new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"),
                 CodeWord = "PageIndex", 
                 Title = "Главная"
             });
             modelBuilder.Entity<TextField>().HasData(new TextField
             {
-                Id = new Guid("70bf165a-700a-4156-91c0-e83fce0a277f"), 
-                CodeWord = "PageServices", 
-                Title = "Наши услуги"
+                Id = new Guid("70af165a-700a-4156-91c0-e83fce0a277f"), 
+                CodeWord = "PageTarget", 
+                Title = "Цели и задачи работы"
             });
             modelBuilder.Entity<TextField>().HasData(new TextField
             {
-                Id = new Guid("4aa76a4c-c59d-409a-84c1-06e6487a137a"), 
-                CodeWord = "PageContacts", 
-                Title = "Контакты"
+                Id = new Guid("4ab76a4c-c59d-409a-84c1-06e6487a137a"), 
+                CodeWord = "PageInputData", 
+                Title = "Исходные данные"
+            });
+            modelBuilder.Entity<TextField>().HasData(new TextField
+            {
+                Id = new Guid("63da8fa6-07ae-4391-8916-e057f71239ce"),
+                CodeWord = "PagePlanJob",
+                Title = "План работы и календарные сроки"
+            });
+            modelBuilder.Entity<TextField>().HasData(new TextField
+            {
+                Id = new Guid("70bf166a-700a-4156-91c0-e83fce0a277f"),
+                CodeWord = "PageResult",
+                Title = "Теоретические и практические результаты"
+            });
+            modelBuilder.Entity<TextField>().HasData(new TextField
+            {
+                Id = new Guid("71af175a-700a-4156-91c0-e83fce0a277f"),
+                CodeWord = "PageAprobe",
+                Title = "Апробация результатов"
             });
         }
     }

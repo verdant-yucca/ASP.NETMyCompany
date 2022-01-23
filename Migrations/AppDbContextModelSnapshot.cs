@@ -49,14 +49,14 @@ namespace MyCompany.Migrations
                         new
                         {
                             Id = "44546e06-8719-4ad8-b88a-f271ae9d6eab",
-                            ConcurrencyStamp = "4d38c271-1edb-4090-b068-24d754ce1123",
+                            ConcurrencyStamp = "de85eeee-d662-4c65-bcb4-d366232d7148",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "33546e06-8719-4ad8-b88a-f271ae9d6ecs",
-                            ConcurrencyStamp = "9780d4ce-0fd1-4824-90f3-7339c1998128",
+                            ConcurrencyStamp = "5aa630e0-fb18-4403-b74e-03fe7c9fe06c",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -155,13 +155,13 @@ namespace MyCompany.Migrations
                         {
                             Id = "2c62472e-4f66-49fa-a20f-e7685b9565e9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e40756e8-02bc-43c0-994e-712c0b773f6f",
+                            ConcurrencyStamp = "2ad8808f-07c1-469c-aee2-f888b5404f05",
                             Email = "user@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDBP0sp5xvOQ8/VMCJwhZH3abq5uIr0wJdRnNbtC0dnQ3jm7W4RB/UNQ+jo9kPI3qg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDl/jXQmSdf0G8Gmf7UCNuw9GwhZL3iiwuiakvGJCJ01/AWE9xy471QwQr5NTaCw9g==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -171,13 +171,13 @@ namespace MyCompany.Migrations
                         {
                             Id = "3b62472e-4f66-49fa-a20f-e7685b9565d8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5c9c7828-a607-46b7-bbde-dab1d4ec761e",
+                            ConcurrencyStamp = "6f06fa67-997a-44e5-be5b-558c73d2604c",
                             Email = "admin@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIHgl1r5hvTA/LFvdsZFFe2ZF0g2Z+6OnYojmnZogtMea5wxv8071hGgWZbgtHXmdg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAI67b8BWG993JVxjlJ1ULVj7RO981Q2f3TBhFAljCNS0FoXe69bTy1ost7ol6UsXg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -356,25 +356,49 @@ namespace MyCompany.Migrations
                         {
                             Id = new Guid("63dc8fa6-07ae-4391-8916-e057f71239ce"),
                             CodeWord = "PageIndex",
-                            DateAdded = new DateTime(2022, 1, 16, 16, 1, 31, 804, DateTimeKind.Utc).AddTicks(5836),
+                            DateAdded = new DateTime(2022, 1, 23, 14, 25, 33, 821, DateTimeKind.Utc).AddTicks(6297),
                             Text = "Содержание заполняется администратором",
                             Title = "Главная"
                         },
                         new
                         {
-                            Id = new Guid("70bf165a-700a-4156-91c0-e83fce0a277f"),
-                            CodeWord = "PageServices",
-                            DateAdded = new DateTime(2022, 1, 16, 16, 1, 31, 804, DateTimeKind.Utc).AddTicks(7494),
+                            Id = new Guid("70af165a-700a-4156-91c0-e83fce0a277f"),
+                            CodeWord = "PageTarget",
+                            DateAdded = new DateTime(2022, 1, 23, 14, 25, 33, 821, DateTimeKind.Utc).AddTicks(8059),
                             Text = "Содержание заполняется администратором",
-                            Title = "Наши услуги"
+                            Title = "Цели и задачи работы"
                         },
                         new
                         {
-                            Id = new Guid("4aa76a4c-c59d-409a-84c1-06e6487a137a"),
-                            CodeWord = "PageContacts",
-                            DateAdded = new DateTime(2022, 1, 16, 16, 1, 31, 804, DateTimeKind.Utc).AddTicks(7562),
+                            Id = new Guid("4ab76a4c-c59d-409a-84c1-06e6487a137a"),
+                            CodeWord = "PageInputData",
+                            DateAdded = new DateTime(2022, 1, 23, 14, 25, 33, 821, DateTimeKind.Utc).AddTicks(8126),
                             Text = "Содержание заполняется администратором",
-                            Title = "Контакты"
+                            Title = "Исходные данные"
+                        },
+                        new
+                        {
+                            Id = new Guid("63da8fa6-07ae-4391-8916-e057f71239ce"),
+                            CodeWord = "PagePlanJob",
+                            DateAdded = new DateTime(2022, 1, 23, 14, 25, 33, 821, DateTimeKind.Utc).AddTicks(8150),
+                            Text = "Содержание заполняется администратором",
+                            Title = "План работы и календарные сроки"
+                        },
+                        new
+                        {
+                            Id = new Guid("70bf166a-700a-4156-91c0-e83fce0a277f"),
+                            CodeWord = "PageResult",
+                            DateAdded = new DateTime(2022, 1, 23, 14, 25, 33, 821, DateTimeKind.Utc).AddTicks(8173),
+                            Text = "Содержание заполняется администратором",
+                            Title = "Теоретические и практические результаты"
+                        },
+                        new
+                        {
+                            Id = new Guid("70af175a-700a-4156-91c0-e83fce0a277f"),
+                            CodeWord = "PageAprobe",
+                            DateAdded = new DateTime(2022, 1, 23, 14, 25, 33, 821, DateTimeKind.Utc).AddTicks(8198),
+                            Text = "Содержание заполняется администратором",
+                            Title = "Апробация результатов"
                         });
                 });
 

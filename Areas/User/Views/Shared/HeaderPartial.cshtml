@@ -2,16 +2,20 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-
                 <header id="header">
-                    <h1><a href="/" id="logo">@Config.CompanyName</a></h1>
-                    <nav id="nav">
-                        <a asp-area="User" asp-controller="Home" asp-action="Index">Главная</a>
-                        <a asp-area="User" asp-controller="Services" asp-action="Index" asp-route-id="">Наши услуги</a>
-                        <a asp-area="User" asp-controller="Home" asp-action="Contacts">Контакты</a>
+                    <nav class="nav_flex" id="nav">
+                        <ul>
+                            <li><a asp-area="User" asp-controller="Home" asp-action="Index">Главная</a></li>
+                            <li><a asp-area="User" asp-controller="Home" asp-action="Target" asp-route-id="">Цели и задачи работы</a></li>
+                            <li><a asp-area="User" asp-controller="Home" asp-action="InputData">Исходные данные</a></li>
+                            <li><a asp-area="User" asp-controller="Home" asp-action="PlanJob">План работы и календарные сроки</a></li>
+                            <li><a asp-area="User" asp-controller="Home" asp-action="Result" asp-route-id="">Теоретические и практические результаты</a></li>
+                            <li><a asp-area="User" asp-controller="Home" asp-action="Aprobe">Апробация результатов</a></li>
+                        </ul>
+
+                        <a class="button_logout" asp-area="" asp-controller="Account" asp-action="Logout" method="post">Выход</a>
                     </nav>
                 </header>
-
             </div>
         </div>
     </div>

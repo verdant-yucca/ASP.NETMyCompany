@@ -1,54 +1,50 @@
 ﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyCompany.Models;
+using Microsoft.AspNetCore.Identity;
+
+using Microsoft.AspNetCore.Authorization;
 
 namespace MyCompany.Controllers
 {
-    [Authorize]
     public class RegisterController : Controller
     {
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly SignInManager<IdentityUser> signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
+
         public RegisterController(UserManager<IdentityUser> userMgr, SignInManager<IdentityUser> signinMgr)
         {
-            userManager = userMgr;
-            signInManager = signinMgr;
+            _userManager = userMgr;
+            _signInManager = signinMgr;
         }
-
-        [AllowAnonymous]
-        public IActionResult Register(string returnUrl)
+        [HttpGet]
+        public IActionResult Register()
         {
-            ViewBag.returnUrl = returnUrl;
-            return View(new LoginViewModel());
+            return View();
         }
         [HttpPost]
-        [AllowAnonymous]
-        public async Task<IActionResult> Register(LoginViewModel model, string returnUrl)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                IdentityUser user = await userManager.FindByNameAsync(model.UserName);
-                if (user != null)
+                User user = new User { Login = model.UserName };
+                // добавляем пользователя
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
                 {
-                    await signInManager.SignOutAsync();
-                    Microsoft.AspNetCore.Identity.SignInResult result = await signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
-                    if (result.Succeeded)
+                    // установка куки
+                    await _signInManager.SignInAsync(user, false);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
                     {
-                        return Redirect(returnUrl ?? "/");
+                        ModelState.AddModelError(string.Empty, error.Description);
                     }
                 }
-                ModelState.AddModelError(nameof(LoginViewModel.UserName), "Неверный логин или пароль");
             }
             return View(model);
-        }
-
-        [Authorize]
-        public async Task<IActionResult> Register()
-        {
-            await signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
         }
     }
 }
